@@ -15,7 +15,8 @@ app.set('view engine','ejs');
 //routes
 
   const cors_op={
-    origin: process.env.ALLOWED_CLIENTS.split(',') }
+    origin: '*' }
+
     app.use(cors(cors_op));
 
 app.use('/api/files', require('./routes/files'));
