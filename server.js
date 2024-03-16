@@ -11,12 +11,13 @@ app.use(express.json());
 app.use(express.static('public'))
 app.set('views',path.join(__dirname,'/views'));
 app.set('view engine','ejs');
-const cors_op={
-    origin:process.env.ALLOWED_CLIENTS.split(',')
 
-}
 //routes
-app.use(cors(cors_op));
+
+  const cors_op={
+    origin: process.env.ALLOWED_CLIENTS.split(',') }
+    app.use(cors(cors_op));
+
 app.use('/api/files', require('./routes/files'));
 app.use('/files', require('./routes/show'));
 app.use('/files/download',require('./routes/download'))
